@@ -1,4 +1,4 @@
-package org.rumeur.org.rumeur.main;
+package org.rumeur.main;
 
 import java.util.Iterator;
 

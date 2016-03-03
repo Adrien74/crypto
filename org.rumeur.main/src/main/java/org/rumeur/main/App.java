@@ -1,4 +1,7 @@
-package org.rumeur.org.rumeur.main;
+package org.rumeur.main;
+import java.io.File;
+
+
 import org.graphstream.algorithm.generator.*;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
@@ -23,7 +26,10 @@ public class App
     	}
 
     	gen.end();
-    	graph.addAttribute("ui.stylehseet", "node { size: 15px; fill-color: #D22; stroke-mode: plain; stroke-color: #999; shadow-mode: plain; shadow-width: 0px; shadow-color: #999; shadow-offset: 3px, -3px; }");
+    	
+    	File cssFile = new File("ressources/style.css");
+    	System.out.println(cssFile.toURI().toString());
+    	graph.addAttribute("ui.stylesheet", "url(" +cssFile.toURI().toString()+")");
 
     	graph.display();
 
