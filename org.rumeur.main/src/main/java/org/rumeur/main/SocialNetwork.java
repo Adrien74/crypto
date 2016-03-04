@@ -29,24 +29,29 @@ public class SocialNetwork extends AdjacencyListGraph {
 	}
 
 	public void spread(SocialNode startNode) {
+		boolean doSleep = false;
 		startNode.addAttribute("ui.class", "infect");
 		Iterator<SocialNode> nodeIterator = startNode.getNeighborNodeIterator();
-		
+
 		ArrayList<SocialNode> contamined = new ArrayList<SocialNode>();
-		
+
 		while (nodeIterator.hasNext()) {
 			SocialNode neighborNode = nodeIterator.next();
-			if(neighborNode.getRumeur() == null) {
+			if (neighborNode.getRumeur() == null) {
+				doSleep = true;
 				contamined.add(neighborNode);
 				neighborNode.addAttribute("ui.class", "infect");
 				neighborNode.setRumeur(new Rumeur());
 			}
 		}
 		
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		if (doSleep) {
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			doSleep = false;
 		}
 		
 		for (SocialNode currentContamined : contamined) {

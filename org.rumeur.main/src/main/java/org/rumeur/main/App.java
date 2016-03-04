@@ -19,12 +19,12 @@ public class App
     	File cssFile = new File("ressources/style.css");
     	SocialNetwork graph = new SocialNetwork("Barabàsi-Albert");
     	// Between 1 and 3 new links per node added.
-    	Generator gen = new BarabasiAlbertGenerator(6);
+    	Generator gen = new BarabasiAlbertGenerator(1);
     	// Generate 100 nodes:
     	gen.addSink(graph); 
     	gen.begin();
 
-    	for(int i=0; i<99; i++) {
+    	for(int i=0; i<999; i++) {
     		gen.nextEvents();
     	}
 
@@ -36,9 +36,9 @@ public class App
     	System.out.println(cssFile.toURI().toString());
     	graph.addAttribute("ui.stylesheet", "url(" +cssFile.toURI().toString()+")");
     	
-    	SocialNode startNode = graph.getNode(20);
+    	SocialNode startNode = graph.getNode(1);
     	try {
-			Thread.sleep(500);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
