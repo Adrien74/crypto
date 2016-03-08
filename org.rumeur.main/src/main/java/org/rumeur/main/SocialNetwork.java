@@ -28,34 +28,43 @@ public class SocialNetwork extends AdjacencyListGraph {
 		this(id, true, false);
 	}
 
-	public void spread(SocialNode startNode) {
-		boolean doSleep = false;
-		startNode.addAttribute("ui.class", "infect");
-		Iterator<SocialNode> nodeIterator = startNode.getNeighborNodeIterator();
-
-		ArrayList<SocialNode> contamined = new ArrayList<SocialNode>();
-
-		while (nodeIterator.hasNext()) {
-			SocialNode neighborNode = nodeIterator.next();
-			if (neighborNode.getRumeur() == null) {
-				doSleep = true;
-				contamined.add(neighborNode);
-				neighborNode.addAttribute("ui.class", "infect");
-				neighborNode.setRumeur(new Rumeur());
-			}
-		}
-		
-		if (doSleep) {
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			doSleep = false;
-		}
-		
-		for (SocialNode currentContamined : contamined) {
-			spread(currentContamined);
-		}
-	}
+//	public void spread(SocialNode startNode, SocialNode targetNode, String test) {
+//		boolean doSleep = false;
+//
+//		Iterator<SocialNode> nodeIterator = startNode.getNeighborNodeIterator();
+//
+//		ArrayList<SocialNode> contamined = new ArrayList<SocialNode>();
+//
+//		while (nodeIterator.hasNext()) {
+//			SocialNode neighborNode = nodeIterator.next();
+//			if (neighborNode.getRumeur() == null) {
+//				doSleep = true;
+//				contamined.add(neighborNode);
+//				neighborNode.addAttribute("ui.class", test);
+//				neighborNode.setRumeur(new Rumeur(targetNode));
+//			}
+//			
+////			if(neighborNode.getRumeur().getTarget() == neighborNode) {				
+////				Iterator<SocialNode> secondNodeIterator = neighborNode.getNeighborNodeIterator();
+////				neighborNode.addAttribute("ui.class", "target");
+////				while (secondNodeIterator.hasNext()) {
+////					SocialNode currentNode = secondNodeIterator.next();
+////					spread(currentNode, targetNode, "truth");
+////				}
+////			}
+//		}
+//		
+//		if (doSleep) {
+//			try {
+//				Thread.sleep(500);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//			doSleep = false;
+//		}
+//		
+//		for (SocialNode currentContamined : contamined) {
+//			spread(currentContamined, targetNode, "infect");
+//		}
+//	}
 }

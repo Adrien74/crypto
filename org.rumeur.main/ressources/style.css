@@ -1,1 +1,11 @@
-node .infect { size: 15px; fill-color: #D22; stroke-mode: plain; stroke-color: #999; shadow-mode: plain; shadow-width: 0px; shadow-color: #999; shadow-offset: 3px, -3px; }
+node { z-index: 0;}
+
+node .infect { size: 15px; fill-color: #D22;}
+
+node .truth { size: 15px; fill-color: #0010F6;}
+
+node .target { size: 15px; fill-color: #00F642;}
+
+node .neutral { size: 15px; fill-color: #ccc;}
+
+node .start { size: 15px; fill-color: #ffff00;}
