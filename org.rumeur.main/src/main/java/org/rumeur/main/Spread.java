@@ -28,7 +28,6 @@ public class Spread implements Runnable {
 			if (neighborNode.getRumeur() == null 
 					&& startNode.getRumeur().getTarget() != neighborNode
 					&& startNode.getRumeur().getLauncher() != neighborNode) {
-				System.out.println("Rumeur");
 				doSleep = true;
 				contamined.add(neighborNode);
 				neighborNode.addAttribute("ui.class", startNode.getRumeur().getRumeurColor());
@@ -37,13 +36,12 @@ public class Spread implements Runnable {
 			
 			else if (neighborNode.getRumeur() == null 
 					&& startNode.getRumeur().getTarget() == neighborNode) {
-				System.out.println("Contre rumeur");
 				neighborNode.setRumeur(new Rumeur(neighborNode, startNode.getRumeur().getLauncher(), "truth"));
 				doSleep = true;
 				contamined.add(neighborNode);
 				Spread antispread = new Spread(neighborNode, graph);
 				Thread antiSpreadThread = new Thread(antispread);
-				antiSpreadThread.run();
+				antiSpreadThread.start();
 			}
 
 			if (
@@ -51,7 +49,6 @@ public class Spread implements Runnable {
 					neighborNode.getRumeur().getTarget() != neighborNode && 
 					startNode.getRumeur().getLauncher() != neighborNode && 
 					startNode.getRumeur().getTarget() != neighborNode) {
-				System.out.println("Dijkstra");
 				if (closerToSelf(neighborNode, startNode.getRumeur().getLauncher(), startNode.getRumeur().getTarget()) == 1) {
 					neighborNode.setRumeur(startNode.getRumeur());
 					neighborNode.changeAttribute("ui.class", neighborNode.getRumeur().getRumeurColor());
@@ -61,9 +58,6 @@ public class Spread implements Runnable {
 
 				}
 				neighborNode.changeAttribute("ui.class", neighborNode.getRumeur().getRumeurColor());
-				
-
-
 			}
 		}
 
@@ -97,8 +91,6 @@ public class Spread implements Runnable {
 		currentToStart = dijkstra.getPathLength(graph.getNode(startNode.getId()));
 		currentToTarget = dijkstra.getPathLength(graph.getNode(targetNode.getId()));
 
-		System.out.println(currentToStart < currentToTarget);
-		System.out.println(currentToStart + " " + currentToTarget);
 		if (currentToStart < currentToTarget) {
 			return 1;
 		} else if (currentToStart > currentToTarget ) {

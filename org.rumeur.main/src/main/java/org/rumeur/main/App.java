@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class App 
 {
-	public final static int SIZE_GRAPH = 30; 
+	public final static int SIZE_GRAPH = 1000; 
 	
     public static void main( String[] args )
     {
@@ -22,7 +22,7 @@ public class App
 
 
     	// Between 1 and 3 new links per node added.
-    	Generator gen = new BarabasiAlbertGenerator(2);
+    	Generator gen = new BarabasiAlbertGenerator(1);
     	// Generate 100 nodes:
     	gen.addSink(graph); 
     	gen.begin();
