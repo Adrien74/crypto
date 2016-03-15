@@ -1,8 +1,5 @@
 package org.rumeur.main;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.NodeFactory;
 import org.graphstream.graph.implementations.AbstractGraph;

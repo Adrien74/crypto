@@ -1,11 +1,16 @@
 node { z-index: 0;}
 
-node .infect { size: 10px; fill-color: #D22;}
+node .infect {fill-color: #D22;}
 
-node .truth { size: 10px; fill-color: #0010F6;}
+node .truth {fill-color: #0010F6;}
 
-node .target { size: 15px; fill-color: #00F642;z-index:2;}
+node .target {fill-color: #00F642;z-index:2;}
 
-node .neutral { size: 10px; fill-color: #ccc;}
+node .neutral {fill-color: #ccc;}
 
-node .start { size: 15px; fill-color: #ffff00; z-index:2;}
+node .start {fill-color: #ffff00; z-index:2;}
+
+//edge { text-background-mode : rounded-box; text-background-color : #FFBF00; text-style : bold; text-size : 8;}
+
+edge .infect {fill-color: black, red ; fill-mode : dyn-plain;}
+edge .truth {fill-color: black, blue ; fill-mode : dyn-plain;}

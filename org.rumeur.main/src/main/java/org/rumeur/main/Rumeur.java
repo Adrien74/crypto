@@ -35,8 +35,4 @@ public class Rumeur {
 	public void setLauncher(SocialNode launcher) {
 		this.launcher = launcher;
 	}
-	
-	
-	
-
 }

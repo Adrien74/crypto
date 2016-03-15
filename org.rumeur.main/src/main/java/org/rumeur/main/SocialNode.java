@@ -6,27 +6,16 @@ import org.graphstream.graph.implementations.SingleNode;
 public class SocialNode extends SingleNode {
 
 	private Rumeur rumeur;
-	private Rumeur contreRumeur;
 	
 	protected SocialNode(AbstractGraph graph, String id) {
 		super(graph, id);
 	}
 
-	public SocialNode(AbstractGraph graph, String id, Rumeur rumeur, Rumeur contreRumeur) {
+	public SocialNode(AbstractGraph graph, String id, Rumeur rumeur) {
 		super(graph, id);
 		this.rumeur = rumeur;
-		this.contreRumeur = contreRumeur;
 	}
 
-	
-	
-	public Rumeur getContreRumeur() {
-		return contreRumeur;
-	}
-
-	public void setContreRumeur(Rumeur contreRumeur) {
-		this.contreRumeur = contreRumeur;
-	}
 
 	public Rumeur getRumeur() {
 		return rumeur;
@@ -35,5 +24,13 @@ public class SocialNode extends SingleNode {
 	public void setRumeur(Rumeur rumeur) {
 		this.rumeur = rumeur;
 	}
+
+	@Override
+	public String toString() {
+		return "SocialNode : " + this .getId()
+			+ " Rumeur : " + this.getRumeur().getRumeurColor();	
+	}
+	
+	
 	
 }
